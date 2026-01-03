@@ -13,7 +13,7 @@ export default function Contact() {
     phone: "+91 8380835093",
     email: "mayuresh.bandekar.26@gmail.com",
     github: "https://github.com/mayureshbandekar",
-    linkedin: "https://www.linkedin.com/in/mayureshbandekar/",
+    linkedin: "https://www.linkedin.com/in/mayuresh-bandekar-b3971518a/",
   };
 
   return (
@@ -63,7 +63,7 @@ export default function Contact() {
                 Connect With Me
               </p>
               <div className="flex space-x-6 text-gray-600 text-2xl">
-                <a
+                {/* <a
                   href={contactInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -71,7 +71,7 @@ export default function Contact() {
                   className="hover:text-gray-800 transition-colors"
                 >
                   <FaGithub />
-                </a>
+                </a> */}
                 <a
                   href={contactInfo.linkedin}
                   target="_blank"

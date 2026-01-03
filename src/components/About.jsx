@@ -156,40 +156,70 @@ export default function About() {
               MERN Stack Developer
             </span>{" "}
             with over{" "}
-            <span className="font-semibold">4 years of experience</span> in
+            <span className="font-semibold">4.11 + years of experience</span> in
             building scalable, performant, and user-centric web applications.
             Skilled in developing enterprise-level solutions using modern
             JavaScript technologies and writing clean, maintainable, and
             efficient code. Core expertise includes
             <span className="font-semibold">
               {" "}
-              React.js, Node.js, Express.js, Redux,
+              React.js, Redux, React Hooks, Context API,
             </span>{" "}
-            and
+            <span className="font-semibold">Node.js, Express.js,</span> and
             <span className="font-semibold"> Tailwind CSS</span>, crafting
             responsive and reusable front-end and back-end components.
-            Experienced with
-            <span className="font-semibold"> MongoDB, MySQL, SQL,</span> and
-            version control using
-            <span className="font-semibold"> Git</span>, enabling complete
-            full-stack development from concept to deployment. Proficient in
-            <span className="font-semibold"> JavaScript</span> (Advanced) with
-            intermediate knowledge of
-            <span className="font-semibold"> PHP, Laravel,</span> and
-            <span className="font-semibold"> React Native</span>. Adept at
-            working with
+            Experienced in building
             <span className="font-semibold">
               {" "}
-              HTML, CSS, SCSS, SASS, Bootstrap, JQuery,
+              RESTful APIs, Authentication & Authorization,
+            </span>{" "}
+            handling
+            <span className="font-semibold"> JWT-based security</span>, and
+            implementing reliable
+            <span className="font-semibold"> CRUD operations</span>. Experienced
+            with
+            <span className="font-semibold">
+              {" "}
+              MongoDB, Mongoose, MySQL, SQL,
+            </span>{" "}
+            including
+            <span className="font-semibold">
+              {" "}
+              data modeling and query optimization
+            </span>
+            , enabling complete full-stack development from concept to
+            deployment. Proficient in
+            <span className="font-semibold"> JavaScript (ES6+)</span> at an
+            advanced level with intermediate knowledge of
+            <span className="font-semibold"> PHP</span> and working exposure to
+            <span className="font-semibold"> .NET</span>. Adept at working with
+            <span className="font-semibold">
+              {" "}
+              HTML5, CSS3, SCSS, SASS, Bootstrap,
+            </span>{" "}
+            along with
+            <span className="font-semibold"> Jest</span> for unit testing and
+            <span className="font-semibold"> Postman</span> for API validation
+            and integration. Experienced with modern development tooling
+            including
+            <span className="font-semibold">
+              {" "}
+              Git, GitHub, NPM, and Webpack
+            </span>
+            . Demonstrates strong
+            <span className="font-semibold">
+              {" "}
+              problem-solving, collaboration, communication,
             </span>{" "}
             and
-            <span className="font-semibold"> Postman</span> for API testing and
-            UI integration. Demonstrates strong{" "}
+            <span className="font-semibold"> adaptability</span> skills, with a
+            solid foundation in
             <span className="font-semibold">
-              problem-solving, collaboration, communication,
+              {" "}
+              component-driven architecture, state management, API integration,
+              performance optimization, and data structures & algorithms
             </span>
-            and <span className="font-semibold">adaptability</span> skills,
-            ensuring high-quality delivery and continuous learning through
+            , ensuring high-quality delivery and continuous learning through
             evolving technologies and best practices.
           </motion.p>
         </AnimatedWrapper>

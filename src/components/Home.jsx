@@ -406,7 +406,7 @@ export default function Home() {
               </span>
               <br />
               <span className="bg-gradient-to-r from-pink-600 via-rose-600 to-orange-500 bg-clip-text text-transparent">
-                Software developer
+                Developer
               </span>
             </h1>
             <p className="text-lg text-gray-900 mb-10 leading-relaxed font-light">
@@ -419,7 +419,7 @@ export default function Home() {
                 MERN Stack Developer{" "}
               </span>
               with over{" "}
-              <span className="font-semibold">4+ years of experience</span> in
+              <span className="font-semibold">4.11+ years of experience</span> in
               designing and developing scalable enterprise applications. I focus
               on clean architecture, reusable components, and smooth user
               experiences while bringing strong

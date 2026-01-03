@@ -1,35 +1,137 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useRef } from "react";
+
+// const skills = [
+//   { name: "React", color: "from-cyan-400 to-blue-500", icon: "⚛️" },
+//   { name: "Next.js", color: "from-slate-300 to-slate-500", icon: "▲" },
+//   { name: "TailwindCSS", color: "from-cyan-400 to-blue-600", icon: "🎨" },
+//   { name: "JavaScript", color: "from-yellow-400 to-yellow-600", icon: "JS" },
+//   { name: "TypeScript", color: "from-blue-500 to-blue-700", icon: "TS" },
+//   { name: "Node.js", color: "from-green-500 to-green-700", icon: "⬢" },
+//   { name: "Express.js", color: "from-slate-400 to-slate-600", icon: "E" },
+//   { name: "NPM", color: "from-red-500 to-red-700", icon: "📦" },
+//   { name: "PNPM", color: "from-orange-400 to-orange-600", icon: "📦" },
+//   { name: "Git", color: "from-orange-500 to-red-600", icon: "⚡" },
+//   { name: "Github", color: "from-slate-600 to-slate-800", icon: "🐙" },
+//   { name: "Figma", color: "from-purple-400 to-pink-500", icon: "🎨" },
+//   { name: "Turborepo", color: "from-red-500 to-pink-600", icon: "⚡" },
+//   { name: "Deno", color: "from-slate-700 to-slate-900", icon: "🦕" },
+//   { name: "PostgreSQL", color: "from-blue-400 to-blue-600", icon: "🐘" },
+//   { name: "MySQL", color: "from-blue-500 to-cyan-600", icon: "🐬" },
+//   { name: "MongoDB", color: "from-green-400 to-green-600", icon: "🍃" },
+//   { name: "Discord.js", color: "from-indigo-500 to-purple-600", icon: "💬" },
+//   { name: "Rollup", color: "from-red-500 to-orange-600", icon: "📦" },
+//   { name: "Docker", color: "from-blue-400 to-blue-600", icon: "🐳" },
+//   { name: "Vercel", color: "from-slate-700 to-slate-900", icon: "▲" },
+//   { name: "Astro", color: "from-orange-500 to-red-600", icon: "🚀" },
+//   { name: "ESLint", color: "from-indigo-400 to-purple-600", icon: "📋" },
+// ];
 
 const skills = [
+  // Programming Languages
+  {
+    name: "JavaScript (ES6+)",
+    color: "from-yellow-400 to-yellow-600",
+    icon: "🟨",
+  },
+  { name: "TypeScript", color: "from-blue-500 to-blue-700", icon: "🟦" },
+  { name: "PHP", color: "from-indigo-500 to-indigo-700", icon: "🐘" },
+
+  // Frontend
   { name: "React", color: "from-cyan-400 to-blue-500", icon: "⚛️" },
-  { name: "Next.js", color: "from-slate-300 to-slate-500", icon: "▲" },
-  { name: "TailwindCSS", color: "from-cyan-400 to-blue-600", icon: "🎨" },
-  { name: "JavaScript", color: "from-yellow-400 to-yellow-600", icon: "JS" },
-  { name: "TypeScript", color: "from-blue-500 to-blue-700", icon: "TS" },
-  { name: "Node.js", color: "from-green-500 to-green-700", icon: "⬢" },
-  { name: "Express.js", color: "from-slate-400 to-slate-600", icon: "E" },
-  { name: "NPM", color: "from-red-500 to-red-700", icon: "📦" },
-  { name: "PNPM", color: "from-orange-400 to-orange-600", icon: "📦" },
-  { name: "Git", color: "from-orange-500 to-red-600", icon: "⚡" },
-  { name: "Github", color: "from-slate-600 to-slate-800", icon: "🐙" },
-  { name: "Figma", color: "from-purple-400 to-pink-500", icon: "🎨" },
-  { name: "Turborepo", color: "from-red-500 to-pink-600", icon: "⚡" },
-  { name: "Deno", color: "from-slate-700 to-slate-900", icon: "🦕" },
-  { name: "PostgreSQL", color: "from-blue-400 to-blue-600", icon: "🐘" },
-  { name: "MySQL", color: "from-blue-500 to-cyan-600", icon: "🐬" },
+  { name: "Redux", color: "from-purple-500 to-purple-700", icon: "🌀" },
+  { name: "React Hooks", color: "from-cyan-300 to-blue-400", icon: "🪝" },
+  { name: "Context API", color: "from-sky-400 to-sky-600", icon: "🔗" },
+  {
+    name: "Functional Components",
+    color: "from-slate-400 to-slate-600",
+    icon: "🧩",
+  },
+
+  // Styling
+  { name: "HTML5", color: "from-orange-400 to-orange-600", icon: "📄" },
+  { name: "CSS3", color: "from-blue-400 to-blue-600", icon: "🎨" },
+  { name: "SCSS", color: "from-pink-400 to-pink-600", icon: "💅" },
+  { name: "SASS", color: "from-rose-400 to-rose-600", icon: "🎀" },
+  { name: "Tailwind CSS", color: "from-cyan-400 to-blue-600", icon: "🌬️" },
+  { name: "Bootstrap", color: "from-purple-400 to-purple-600", icon: "🅱️" },
+
+  // Testing
+  { name: "Jest", color: "from-red-400 to-red-600", icon: "🧪" },
+
+  // Backend
+  { name: "Node.js", color: "from-green-500 to-green-700", icon: "🌳" },
+  { name: "Express.js", color: "from-slate-400 to-slate-600", icon: "🚂" },
+  { name: "REST API", color: "from-emerald-400 to-emerald-600", icon: "🔌" },
+  {
+    name: "Authentication",
+    color: "from-indigo-400 to-indigo-600",
+    icon: "🔐",
+  },
+  { name: "Authorization", color: "from-indigo-500 to-indigo-700", icon: "🛡️" },
+  { name: "JWT", color: "from-pink-500 to-pink-700", icon: "🪪" },
+  { name: "CRUD Operations", color: "from-teal-400 to-teal-600", icon: "🗂️" },
+  { name: ".NET", color: "from-purple-500 to-indigo-600", icon: "🧩" },
+
+  // Databases
   { name: "MongoDB", color: "from-green-400 to-green-600", icon: "🍃" },
-  { name: "Discord.js", color: "from-indigo-500 to-purple-600", icon: "💬" },
-  { name: "Rollup", color: "from-red-500 to-orange-600", icon: "📦" },
-  { name: "Docker", color: "from-blue-400 to-blue-600", icon: "🐳" },
-  { name: "Vercel", color: "from-slate-700 to-slate-900", icon: "▲" },
-  { name: "Astro", color: "from-orange-500 to-red-600", icon: "🚀" },
-  { name: "ESLint", color: "from-indigo-400 to-purple-600", icon: "📋" },
+  { name: "Mongoose", color: "from-green-500 to-green-700", icon: "🐍" },
+  { name: "MySQL", color: "from-blue-500 to-cyan-600", icon: "🐬" },
+  { name: "SQL", color: "from-slate-500 to-slate-700", icon: "🗄️" },
+  { name: "Data Modeling", color: "from-amber-400 to-amber-600", icon: "📐" },
+  {
+    name: "Query Optimization",
+    color: "from-orange-400 to-orange-600",
+    icon: "⚡",
+  },
+
+  // Tools
+  { name: "Git", color: "from-orange-500 to-red-600", icon: "🔀" },
+  { name: "GitHub", color: "from-slate-600 to-slate-800", icon: "🐙" },
+  { name: "NPM", color: "from-red-500 to-red-700", icon: "📦" },
+  { name: "Postman", color: "from-orange-400 to-orange-600", icon: "📮" },
+  { name: "Webpack", color: "from-sky-400 to-sky-600", icon: "📦" },
+
+  // Concepts
+  {
+    name: "Component-driven Architecture",
+    color: "from-violet-400 to-violet-600",
+    icon: "🏗️",
+  },
+  {
+    name: "State Management",
+    color: "from-purple-400 to-purple-600",
+    icon: "🧠",
+  },
+  {
+    name: "API Integration",
+    color: "from-emerald-400 to-emerald-600",
+    icon: "🔄",
+  },
+  {
+    name: "Performance Optimization",
+    color: "from-amber-400 to-amber-600",
+    icon: "🚀",
+  },
+  {
+    name: "Data Structures & Algorithms",
+    color: "from-slate-700 to-slate-900",
+    icon: "📊",
+  },
 ];
 
 const Skills = () => {
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
+  const rowRef = useRef(null);
+  const [rowWidth, setRowWidth] = useState(0);
+
+  useEffect(() => {
+    if (rowRef.current) {
+      setRowWidth(rowRef.current.scrollWidth / 3);
+    }
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -96,15 +198,14 @@ const Skills = () => {
         {/* Row 1 - Left to Right */}
         <div className="overflow-hidden mb-8 relative">
           <motion.div
+            ref={rowRef}
             className="flex gap-6"
-            animate={{
-              x: [0, -2000],
-            }}
+            animate={{ x: [0, -rowWidth] }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 30,
+                duration: 100,
                 ease: "linear",
               },
             }}
@@ -122,9 +223,12 @@ const Skills = () => {
 
                 {/* Card */}
                 <div className="relative flex items-center gap-4 px-8 py-4 bg-white/80 backdrop-blur-md border border-indigo-200/50 rounded-2xl shadow-lg min-w-[200px] group-hover:border-indigo-300 transition-all">
-                  <div
+                  {/* <div
                     className={`text-3xl bg-gradient-to-r ${skill.color} bg-clip-text text-transparent font-bold`}
                   >
+                    {skill.icon}
+                  </div> */}
+                  <div className="text-3xl font-bold drop-shadow-sm">
                     {skill.icon}
                   </div>
                   <span className="text-gray-800 font-semibold text-lg whitespace-nowrap">
@@ -139,15 +243,14 @@ const Skills = () => {
         {/* Row 2 - Right to Left */}
         <div className="overflow-hidden mb-8 relative">
           <motion.div
+            ref={rowRef}
             className="flex gap-6"
-            animate={{
-              x: [-2000, 0],
-            }}
+            animate={{ x: [-rowWidth, 0] }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 35,
+                duration: 80,
                 ease: "linear",
               },
             }}
@@ -165,9 +268,7 @@ const Skills = () => {
 
                 {/* Card */}
                 <div className="relative flex items-center gap-4 px-8 py-4 bg-white/80 backdrop-blur-md border border-purple-200/50 rounded-2xl shadow-lg min-w-[200px] group-hover:border-purple-300 transition-all">
-                  <div
-                    className={`text-3xl bg-gradient-to-r ${skill.color} bg-clip-text text-transparent font-bold`}
-                  >
+                  <div className="text-3xl font-bold drop-shadow-sm">
                     {skill.icon}
                   </div>
                   <span className="text-gray-800 font-semibold text-lg whitespace-nowrap">
@@ -182,15 +283,14 @@ const Skills = () => {
         {/* Row 3 - Left to Right (Faster) */}
         <div className="overflow-hidden relative">
           <motion.div
+            ref={rowRef}
             className="flex gap-6"
-            animate={{
-              x: [0, -2000],
-            }}
+            animate={{ x: [0, -rowWidth] }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 25,
+                duration: 120,
                 ease: "linear",
               },
             }}
@@ -208,9 +308,7 @@ const Skills = () => {
 
                 {/* Card */}
                 <div className="relative flex items-center gap-4 px-8 py-4 bg-white/80 backdrop-blur-md border border-pink-200/50 rounded-2xl shadow-lg min-w-[200px] group-hover:border-pink-300 transition-all">
-                  <div
-                    className={`text-3xl bg-gradient-to-r ${skill.color} bg-clip-text text-transparent font-bold`}
-                  >
+                  <div className="text-3xl font-bold drop-shadow-sm">
                     {skill.icon}
                   </div>
                   <span className="text-gray-800 font-semibold text-lg whitespace-nowrap">
